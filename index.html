@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex - Trabajo Práctico Integrador</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO: título + barra de navegación -->
+  <header class="header" id="inicio">
+    <div class="header__top">
+      <div class="header__device">
+        <span class="lens" aria-hidden="true"></span>
+        <h1 class="logo">Pokédex</h1>
+      </div>
+      <div class="leds" aria-hidden="true">
+        <span class="led led--red"></span>
+        <span class="led led--yellow"></span>
+        <span class="led led--green"></span>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menu">☰ Menú</button>
+    </div>
+    <nav class="nav" id="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#api">Pokémon</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- SECCIÓN DE CONTENIDO PRINCIPAL -->
+    <section class="section">
+      <h2>Sobre el proyecto</h2>
+      <p>
+        Esta página es un ejemplo del Trabajo Práctico Integrador. La temática elegida son los
+        Pokémon: cada vez que cargues la sección de abajo, se consultan datos reales a la
+        PokeAPI y se muestran como tarjetas.
+      </p>
+    </section>
+
+    <!-- SECCIÓN DE API -->
+    <section class="section section--pantalla" id="api">
+      <h2>Pokémon aleatorios</h2>
+      <div class="controls">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Buscar por nombre o Nº..."
+          aria-label="Buscar Pokémon"
+        >
+        <button class="btn" id="loadBtn">Cargar otros</button>
+      </div>
+      <p class="status" id="status" role="status"></p>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <!-- SECCIÓN DE FORMULARIO -->
+    <section class="section" id="contacto">
+      <h2>Contacto</h2>
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text">
+          <small class="error" data-error="nombre"></small>
+        </div>
+
+        <div class="field">
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email">
+          <small class="error" data-error="email"></small>
+        </div>
+
+        <div class="field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+          <small class="error" data-error="mensaje"></small>
+        </div>
+
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <p>Autor: Tu nombre · <a href="mailto:tu@correo.com">tu@correo.com</a></p>
+    <nav class="footer__links">
+      <a href="#inicio">Inicio</a>
+      <a href="#api">Pokémon</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <p>© <span id="year"></span> Pokédex - Trabajo Práctico</p>
+    <p class="footer__brand">Tecno3F</p>
+    <button class="btn back-to-top" id="backToTop" hidden>Volver arriba</button>
+  </footer>
+
+  <!-- MODAL DE DETALLES -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__content">
+      <button class="modal__close" id="closeModal" aria-label="Cerrar">✕</button>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
